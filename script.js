@@ -71,20 +71,3 @@ document.addEventListener("click", (e) => {
         lightbox.classList.add("hidden");
     }
 });
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
-    });
-}, {threshold: 0.3});
-
-document.querySelectorAll(".fade-section").forEach(section => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-        section.classList.add("visible");
-    } else {
-        observer.observe(section);
-    }
-});
