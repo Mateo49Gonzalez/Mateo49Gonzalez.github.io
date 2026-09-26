@@ -81,5 +81,10 @@ const observer = new IntersectionObserver((entries) => {
 }, {threshold: 0.3});
 
 document.querySelectorAll(".fade-section").forEach(section => {
-    observer.observe(section);
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+        section.classList.add("visible");
+    } else {
+        observer.observe(section);
+    }
 });
