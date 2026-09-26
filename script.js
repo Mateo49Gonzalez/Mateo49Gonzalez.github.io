@@ -38,6 +38,7 @@ function loadMonthPhotos(folderName, container, fallbackMessage) {
     function tryNext() {
         const img = new Image();
         img.src = `images/${folderName}/${i}.jpg`;
+        img.loading = "lazy";
 
         img.onload = () => {
             foundAny = true;
